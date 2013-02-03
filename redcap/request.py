@@ -115,7 +115,7 @@ class RCRequest(object):
         else return raw string (ie format=='csv'|'xml')
         """
         header = {'Content-Type': 'application/x-www-form-urlencoded'}
-        r = requests.post(self.url, data=self.payload, headers=header,
+        r = requests.post(self.url, verify=False, data=self.payload, headers=header,
             **kwargs)
         if self.type != 'exp_file':
             if self.fmt == 'json':
